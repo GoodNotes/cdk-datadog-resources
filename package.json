@@ -26,7 +26,8 @@
     "unbump": "npx projen unbump",
     "upgrade": "npx projen upgrade",
     "watch": "npx projen watch",
-    "projen": "npx projen"
+    "projen": "npx projen",
+    "create-typescript-types": "node scripts/create-types.js"
   },
   "author": {
     "name": "Gabriel Fürstenheim",
@@ -64,7 +65,8 @@
     "constructs": "^10.2.69"
   },
   "dependencies": {
-    "camelcase-keys": "^6.2.2"
+    "camelcase-keys": "^6.2.2",
+    "json-schema-to-typescript": "^13.1.1"
   },
   "bundledDependencies": [
     "camelcase-keys"
