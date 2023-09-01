@@ -13,7 +13,7 @@ test('Snapshot test', () => {
       thresholds: {
         critical: 100,
         warning: 80,
-        ok: 90,
+        oK: 90,
       },
       notifyNoData: true,
       evaluationDelay: 60,

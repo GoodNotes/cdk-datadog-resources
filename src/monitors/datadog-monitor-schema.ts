@@ -198,10 +198,6 @@ export interface MonitorThresholds {
    */
   readonly criticalRecovery?: number;
   /**
-   * Threshold value for recovering from an alert state
-   */
-  readonly ok?: number;
-  /**
    * Threshold value for triggering a warning
    */
   readonly warning?: number;
@@ -209,6 +205,10 @@ export interface MonitorThresholds {
    * Threshold value for recovering from a warning state
    */
   readonly warningRecovery?: number;
+  /**
+   * Threshold value for recovering from an alert state
+   */
+  readonly oK?: number;
 }
 /**
  * The threshold window definitions

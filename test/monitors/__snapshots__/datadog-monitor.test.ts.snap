@@ -18,7 +18,7 @@ Object {
           "NotifyNoData": true,
           "Thresholds": Object {
             "Critical": 100,
-            "Ok": 90,
+            "OK": 90,
             "Warning": 80,
           },
         },
