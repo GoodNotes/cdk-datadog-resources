@@ -47,7 +47,7 @@ const project = new AwsCdkConstructLibrary({
   bundledDeps: ['camelcase-keys'],
   // deps: [],                                                                          /* Runtime dependencies of this module. */
   // description: undefined,                                                            /* The description is just a string that helps people understand the purpose of the package. */
-  devDeps: ['prettier', 'aws-cdk@2.93.0', 'aws-cdk-lib@2.92.0'/*, 'json-schema-to-typescript@^13.1.1'*/],
+  devDeps: ['prettier', 'aws-cdk@2.93.0', 'aws-cdk-lib@2.92.0'],
   // entrypoint: 'lib/index.js',                                                        /* Module entrypoint (`main` in `package.json`). */
   // homepage: undefined,                                                               /* Package's Homepage / Website. */
   // keywords: undefined,                                                               /* Keywords to include in `package.json`. */
@@ -120,5 +120,5 @@ const project = new AwsCdkConstructLibrary({
 // https://github.com/cdklabs/jsii-docgen/issues/1122
 project.tasks.tryFind('docgen').reset();
 
-project.tasks.addTask('create-typescript-types', { exec: 'node scripts/create-types.js' });
+project.tasks.addTask('create-typescript-types', { exec: 'yarn --cwd scripts node create-types.js' });
 project.synth();

@@ -95,7 +95,7 @@
       "name": "create-typescript-types",
       "steps": [
         {
-          "exec": "node scripts/create-types.js"
+          "exec": "yarn --cwd scripts node create-types.js"
         }
       ]
     },
