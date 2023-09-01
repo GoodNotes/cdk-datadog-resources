@@ -10,6 +10,7 @@
     "clobber": "npx projen clobber",
     "compat": "npx projen compat",
     "compile": "npx projen compile",
+    "create-typescript-types": "npx projen create-typescript-types",
     "default": "npx projen default",
     "docgen": "npx projen docgen",
     "eject": "npx projen eject",

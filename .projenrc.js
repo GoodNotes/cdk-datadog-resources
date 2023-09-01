@@ -119,4 +119,6 @@ const project = new AwsCdkConstructLibrary({
 // docgen is currently the only task of post-compile and it fails for aws-cdk-lib in jsii
 // https://github.com/cdklabs/jsii-docgen/issues/1122
 project.tasks.tryFind('docgen').reset();
+
+project.tasks.addTask('create-typescript-types', { exec: 'yarn --cwd scripts node create-types.js' });
 project.synth();
