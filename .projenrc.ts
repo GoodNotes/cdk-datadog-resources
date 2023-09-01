@@ -1,6 +1,6 @@
-const { awscdk, javascript } = require('projen');
+import { javascript } from 'projen';
+import { AwsCdkConstructLibrary } from 'projen/lib/awscdk';
 
-const AwsCdkConstructLibrary = awscdk.AwsCdkConstructLibrary;
 const ORGANIZATION = 'goodnotes-oss';
 const PROJECT_NAME = 'cdk-datadog-resources';
 
@@ -9,9 +9,9 @@ const project = new AwsCdkConstructLibrary({
   authorAddress: 'gabriel.f@goodnotes.com',
   cdkVersion: '2.92.0',
   defaultReleaseBranch: 'master',
-  jsiiFqn: 'projen.AwsCdkConstructLibrary',
   name: `@${ORGANIZATION}/${PROJECT_NAME}`,
   repositoryUrl: 'https://github.com/GoodNotes/cdk-datadog-resources.git',
+  projenrcTs: true,
 
   /* AwsCdkConstructLibraryOptions */
   constructsVersion: '10.2.69',
@@ -30,9 +30,9 @@ const project = new AwsCdkConstructLibrary({
   // eslintOptions: undefined,                                                          /* Eslint options. */
   // excludeTypescript: undefined,                                                      /* Accepts a list of glob patterns. */
   // publishToGo: undefined,                                                            /* Publish Go bindings to a git repository. */
-  publishToMaven: false,
+  // publishToMaven: undefined,
   // publishToNuget: undefined,                                                         /* Publish to NuGet. */
-  publishToPypi: false,
+  // publishToPypi: undefined,
   // rootdir: '.',                                                                      /* undefined */
   // sampleCode: true,                                                                  /* Generate one-time sample in `src/` and `test/` if there are no files there. */
 
@@ -62,7 +62,7 @@ const project = new AwsCdkConstructLibrary({
   // packageManager: NodePackageManager.YARN,                                           /* The Node Package Manager used to execute scripts. */
   // packageName: undefined,                                                            /* The "name" in package.json. */
   // peerDependencyOptions: undefined,                                                  /* Options for `peerDeps`. */
-  peerDeps: ['aws-cdk-lib@2.92.0'], /* Peer dependencies for this module. */
+  peerDeps: ['aws-cdk-lib@2.92.0'] /* Peer dependencies for this module. */,
   // projenCommand: 'npx projen',                                                       /* The shell command to use in order to run the projen CLI. */
   // repository: undefined,                                                             /* The repository is the location where the actual code for your package lives. */
   // repositoryDirectory: undefined,                                                    /* If the package.json for your package is not in the root directory (for example if it is part of a monorepo), you can specify the directory in which it lives. */
@@ -118,7 +118,8 @@ const project = new AwsCdkConstructLibrary({
 });
 // docgen is currently the only task of post-compile and it fails for aws-cdk-lib in jsii
 // https://github.com/cdklabs/jsii-docgen/issues/1122
-project.tasks.tryFind('docgen').reset();
+const docgen = project.tasks.tryFind('docgen');
+if (docgen) docgen.reset();
 
 project.tasks.addTask('create-typescript-types', { exec: 'yarn --cwd scripts node create-types.js' });
 project.synth();
