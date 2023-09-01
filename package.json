@@ -10,6 +10,7 @@
     "clobber": "npx projen clobber",
     "compat": "npx projen compat",
     "compile": "npx projen compile",
+    "create-typescript-types": "npx projen create-typescript-types",
     "default": "npx projen default",
     "docgen": "npx projen docgen",
     "eject": "npx projen eject",
@@ -26,8 +27,7 @@
     "unbump": "npx projen unbump",
     "upgrade": "npx projen upgrade",
     "watch": "npx projen watch",
-    "projen": "npx projen",
-    "create-typescript-types": "node scripts/create-types.js"
+    "projen": "npx projen"
   },
   "author": {
     "name": "Gabriel Fürstenheim",
@@ -65,8 +65,7 @@
     "constructs": "^10.2.69"
   },
   "dependencies": {
-    "camelcase-keys": "^6.2.2",
-    "json-schema-to-typescript": "^13.1.1"
+    "camelcase-keys": "^6.2.2"
   },
   "bundledDependencies": [
     "camelcase-keys"

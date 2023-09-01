@@ -91,6 +91,14 @@
         }
       ]
     },
+    "create-typescript-types": {
+      "name": "create-typescript-types",
+      "steps": [
+        {
+          "exec": "node scripts/create-types.js"
+        }
+      ]
+    },
     "default": {
       "name": "default",
       "description": "Synthesize project files",

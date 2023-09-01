@@ -2,7 +2,7 @@ import { CfnResource } from 'aws-cdk-lib';
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 import camelcaseKeys = require('camelcase-keys');
 import { Construct } from 'constructs';
-import { DatadogMonitorProps } from '../../lib';
+import { DatadogMonitorProps } from './datadog-monitor-schema';
 
 /**
  * Datadog Monitor 4.6.0
