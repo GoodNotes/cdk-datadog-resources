@@ -1,3 +1,3 @@
-export * from './monitors/datadog-monitor';
-export * from './monitors/properties';
-export * from './monitors/datadog-monitor-schema';
+export * from './monitors';
+export * from './dashboards';
+export * from './slos';

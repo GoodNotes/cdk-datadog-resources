@@ -19,5 +19,8 @@
 /API.md linguist-generated
 /LICENSE linguist-generated
 /package.json linguist-generated
+/src/dashboards/datadog-dashboard-schema.generated.ts linguist-generated
+/src/monitors/datadog-monitor-schema.generated.ts linguist-generated
+/src/slos/datadog-slo-schema.generated.ts linguist-generated
 /tsconfig.dev.json linguist-generated
 /yarn.lock linguist-generated

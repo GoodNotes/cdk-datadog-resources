@@ -52,3 +52,6 @@ junit.xml
 .jsii
 tsconfig.json
 !/API.md
+!/src/monitors/datadog-monitor-schema.generated.ts
+!/src/dashboards/datadog-dashboard-schema.generated.ts
+!/src/slos/datadog-slo-schema.generated.ts

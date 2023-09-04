@@ -10,7 +10,6 @@
     "clobber": "npx projen clobber",
     "compat": "npx projen compat",
     "compile": "npx projen compile",
-    "create-typescript-types": "npx projen create-typescript-types",
     "default": "npx projen default",
     "docgen": "npx projen docgen",
     "eject": "npx projen eject",
@@ -48,11 +47,12 @@
     "eslint-plugin-import": "^2.25.2",
     "jest": "^27",
     "jest-junit": "^15",
-    "jsii": "1.x",
+    "jsii": "~5.0.0",
     "jsii-diff": "1",
     "jsii-docgen": "1.8.110",
     "jsii-pacmak": "^1.42.0",
-    "jsii-rosetta": "1.x",
+    "jsii-rosetta": "~5.0.0",
+    "json-schema-to-typescript": "^13.1.1",
     "npm-check-updates": "^16",
     "prettier": "^2.4.1",
     "projen": "0.71.128",
@@ -71,10 +71,6 @@
   "bundledDependencies": [
     "camelcase-keys"
   ],
-  "resolutions": {
-    "@types/babel__traverse": "7.18.2",
-    "@types/prettier": "2.6.0"
-  },
   "keywords": [
     "cdk"
   ],

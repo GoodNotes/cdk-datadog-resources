@@ -18,11 +18,18 @@ You need to register the correct version listed in `Supported Resources`.
 
 ## Supported Resources
 
-| Supported? | Resource                | Datadog CF Resource Name         | Description                                              | Datadog CF Version |
-| :--------: | ----------------------- | -------------------------------- | -------------------------------------------------------- |--------------------|
-|     ✅     | Monitors                | `Datadog::Monitors::Monitor`     | [Create, update, and delete Datadog monitors.][3]        | [4.6.0][6]         |
+| Supported? | Resource   | Datadog CF Resource Name         | Description                                         | Datadog CF Version |
+| :--------: | ---------- | -------------------------------- | --------------------------------------------------- | ------------------ |
+|     ✅     | Dashboards | `Datadog::Dashboards::Dashboard` | [Create, update, and delete Datadog dashboards.][1] | [2.1.0][2]         |
+|     ✅     | Monitors   | `Datadog::Monitors::Monitor`     | [Create, update, and delete Datadog monitors.][3]   | [4.6.0][4]         |
+|     ✅     | SLOs       | `Datadog::SLOs::SLO`             | [Create, update, and delete Datadog SLOs.][5]       | [1.1.0][6]         |
 
-[6]: https://github.com/DataDog/datadog-cloudformation-resources/blob/master/datadog-monitors-monitor-handler/CHANGELOG.md#300--2021-02-16
+[1]: https://github.com/DataDog/datadog-cloudformation-resources/tree/master/datadog-dashboards-dashboard-handler
+[2]: https://github.com/DataDog/datadog-cloudformation-resources/blob/master/datadog-dashboards-dashboard-handler/CHANGELOG.md#210--2023-04-10
+[3]: https://github.com/DataDog/datadog-cloudformation-resources/tree/master/datadog-monitors-monitor-handler
+[4]: https://github.com/DataDog/datadog-cloudformation-resources/blob/master/datadog-monitors-monitor-handler/CHANGELOG.md#300--2021-02-16
+[5]: https://github.com/DataDog/datadog-cloudformation-resources/tree/master/datadog-slos-slo-handler
+[6]: https://github.com/DataDog/datadog-cloudformation-resources/blob/master/datadog-slos-slo-handler/CHANGELOG.md#110--2023-04-10
 
 ## Installation
 
@@ -57,6 +64,10 @@ new DatadogMonitor(yourStack, 'TestMonitor', {
 });
 ```
 
-
 ## Fork
+
 This is a fork of https://github.com/NomadBlacky/cdk-datadog-resources, which is currently unmaintained.
+
+## Notes
+
+- The DataDog [Dashboard TypeScript Interface](src/dashboards/datadog-api-dashboard.generated.ts) was generated from the [DataDog/datadog-api-client-typescript](https://github.com/DataDog/datadog-api-client-typescript) package through [GoodNotes/ts-interface-generator](https://github.com/GoodNotes/ts-interface-generator). It is currently inlined while this setup is PoC.

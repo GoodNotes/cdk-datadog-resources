@@ -1,6 +1,6 @@
 import { Stack } from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
-import { DatadogMonitor, MonitorType } from '../../src';
+import { DatadogMonitor, MonitorType } from '../src';
 
 test('Snapshot test', () => {
   const stack = new Stack();
