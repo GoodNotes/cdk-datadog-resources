@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot test 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "TestDashboard": Object {
+      "Properties": Object {
+        "DashboardDefinition": "{\\"title\\":\\"Example-Dashboard\\",\\"widgets\\":[{\\"definition\\":{\\"title\\":\\"Metrics HOP\\",\\"title_size\\":\\"16\\",\\"title_align\\":\\"left\\",\\"show_legend\\":false,\\"type\\":\\"distribution\\",\\"custom_links\\":[{\\"label\\":\\"Example\\",\\"link\\":\\"https://example.org/\\"}],\\"xaxis\\":{\\"max\\":\\"auto\\",\\"include_zero\\":true,\\"scale\\":\\"linear\\",\\"min\\":\\"auto\\"},\\"yaxis\\":{\\"max\\":\\"auto\\",\\"include_zero\\":true,\\"scale\\":\\"linear\\",\\"min\\":\\"auto\\"},\\"requests\\":[{\\"query\\":{\\"query\\":\\"histogram:trace.Load{*}\\",\\"data_source\\":\\"metrics\\",\\"name\\":\\"query1\\"},\\"request_type\\":\\"histogram\\",\\"style\\":{\\"palette\\":\\"dog_classic\\"}}]},\\"layout\\":{\\"x\\":0,\\"y\\":0,\\"width\\":4,\\"height\\":2}}],\\"layout_type\\":\\"ordered\\"}",
+      },
+      "Type": "Datadog::Dashboards::Dashboard",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;

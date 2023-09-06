@@ -2,7 +2,6 @@
   "dependencies": [
     {
       "name": "@types/jest",
-      "version": "^27",
       "type": "build"
     },
     {
@@ -36,6 +35,10 @@
       "type": "build"
     },
     {
+      "name": "eslint-config-prettier",
+      "type": "build"
+    },
+    {
       "name": "eslint-import-resolver-node",
       "type": "build"
     },
@@ -48,18 +51,21 @@
       "type": "build"
     },
     {
+      "name": "eslint-plugin-prettier",
+      "type": "build"
+    },
+    {
       "name": "eslint",
       "version": "^8",
       "type": "build"
     },
     {
-      "name": "jest-junit",
-      "version": "^15",
+      "name": "jest",
       "type": "build"
     },
     {
-      "name": "jest",
-      "version": "^27",
+      "name": "jest-junit",
+      "version": "^15",
       "type": "build"
     },
     {
@@ -76,12 +82,16 @@
     },
     {
       "name": "jsii-rosetta",
-      "version": "1.x",
+      "version": "~5.0.0",
       "type": "build"
     },
     {
       "name": "jsii",
-      "version": "1.x",
+      "version": "~5.0.0",
+      "type": "build"
+    },
+    {
+      "name": "json-schema-to-typescript",
       "type": "build"
     },
     {
@@ -104,7 +114,6 @@
     },
     {
       "name": "ts-jest",
-      "version": "^27",
       "type": "build"
     },
     {
@@ -120,14 +129,8 @@
       "type": "bundled"
     },
     {
-      "name": "@types/babel__traverse",
-      "version": "7.18.2",
-      "type": "override"
-    },
-    {
-      "name": "@types/prettier",
-      "version": "2.6.0",
-      "type": "override"
+      "name": "decamelize",
+      "type": "bundled"
     },
     {
       "name": "aws-cdk-lib",

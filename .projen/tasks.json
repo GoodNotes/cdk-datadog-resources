@@ -91,14 +91,6 @@
         }
       ]
     },
-    "create-typescript-types": {
-      "name": "create-typescript-types",
-      "steps": [
-        {
-          "exec": "yarn --cwd scripts node create-types.js"
-        }
-      ]
-    },
     "default": {
       "name": "default",
       "description": "Synthesize project files",
@@ -175,6 +167,16 @@
       "steps": [
         {
           "exec": "jsii-pacmak -v --target js"
+        }
+      ]
+    },
+    "parse-json": {
+      "name": "parse-json",
+      "description": "Parse a DataDog json file into DataDog Typescript compatible json",
+      "steps": [
+        {
+          "exec": "ts-node projenrc/parse-json.ts",
+          "receiveArgs": true
         }
       ]
     },

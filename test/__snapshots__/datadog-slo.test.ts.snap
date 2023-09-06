@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot test 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "TestSLO": Object {
+      "Properties": Object {
+        "Description": "Example SLO",
+        "Groups": Array [
+          "env:test",
+          "role:mysql",
+        ],
+        "Name": "Example-Service-Level-Objective",
+        "Query": Object {
+          "Denominator": "sum:httpservice.hits{!code:3xx}.as_count()",
+          "Numerator": "sum:httpservice.hits{code:2xx}.as_count()",
+        },
+        "Tags": Array [
+          "env:prod",
+          "app:core",
+        ],
+        "Thresholds": Array [
+          Object {
+            "Target": 97,
+            "TargetDisplay": "97.0",
+            "Timeframe": "7d",
+            "Warning": 98,
+            "WarningDisplay": "98.0",
+          },
+        ],
+        "Type": "metric",
+      },
+      "Type": "Datadog::SLOs::SLO",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
