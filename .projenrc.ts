@@ -31,6 +31,12 @@ const project = new AwsCdkConstructLibrary({
   npmAccess: javascript.NpmAccess.PUBLIC,
   gitignore: ["cdk.out/"],
   prettier: true,
+  autoApproveOptions: {
+    allowedUsernames: ["gn-devops-ci"],
+    // must be different Token from PROJEN_GITHUB_TOKEN to approve PR
+    secret: "GITHUB_TOKEN",
+  },
+  autoApproveUpgrades: true,
 });
 
 // JSII sets this to `false` so we need to be compatible
