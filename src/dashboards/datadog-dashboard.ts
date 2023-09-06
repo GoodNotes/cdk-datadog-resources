@@ -1,8 +1,9 @@
-import { CfnResource } from 'aws-cdk-lib';
-import * as camelcaseKeys from 'camelcase-keys';
-import { Construct } from 'constructs';
-import { Dashboard } from './datadog-api-dashboard.generated';
-import { DatadogDashboardProps } from './datadog-dashboard-schema.generated';
+import { CfnResource } from "aws-cdk-lib";
+import * as camelcaseKeys from "camelcase-keys";
+import { Construct } from "constructs";
+import { snakeCaseKeys } from "../util";
+import { Dashboard } from "./datadog-api-dashboard.generated";
+import { DatadogDashboardProps } from "./datadog-dashboard-schema.generated";
 
 /**
  * Wrapper for generated Schema with typed dashboard property
@@ -21,7 +22,7 @@ export class DatadogDashboard {
     if (props.dashboard) {
       propsCopy = {
         ...props,
-        dashboardDefinition: JSON.stringify(props.dashboard),
+        dashboardDefinition: JSON.stringify(snakeCaseKeys(props.dashboard)),
       };
       delete propsCopy.dashboard;
     }
@@ -30,7 +31,7 @@ export class DatadogDashboard {
       pascalCase: true,
     });
     new CfnResource(scope, id, {
-      type: 'Datadog::Dashboards::Dashboard',
+      type: "Datadog::Dashboards::Dashboard",
       properties: { ...cfnProperties },
     });
   }

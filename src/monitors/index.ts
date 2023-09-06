@@ -1,3 +1,3 @@
-export * from './datadog-monitor-schema.generated';
-export * from './datadog-monitor';
-export * from './properties';
+export * from "./datadog-monitor-schema.generated";
+export * from "./datadog-monitor";
+export * from "./properties";

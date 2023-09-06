@@ -170,6 +170,16 @@
         }
       ]
     },
+    "parse-json": {
+      "name": "parse-json",
+      "description": "Parse a DataDog json file into DataDog Typescript compatible json",
+      "steps": [
+        {
+          "exec": "ts-node projenrc/parse-json.ts",
+          "receiveArgs": true
+        }
+      ]
+    },
     "post-compile": {
       "name": "post-compile",
       "description": "Runs after successful compilation",

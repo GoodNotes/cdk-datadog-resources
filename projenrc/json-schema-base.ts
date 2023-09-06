@@ -1,6 +1,6 @@
-import * as fs from 'fs';
-import { compile, JSONSchema } from 'json-schema-to-typescript';
-import { Project, FileBase, FileBaseOptions, IResolver } from 'projen';
+import * as fs from "fs";
+import { compile, JSONSchema } from "json-schema-to-typescript";
+import { Project, FileBase, FileBaseOptions, IResolver } from "projen";
 
 export interface JsonSchemaBaseOptions extends FileBaseOptions {
   /**
@@ -22,7 +22,7 @@ export const PATCHERS = {
   readonlyFields: (ts: string | undefined): string | undefined => {
     if (!ts) return ts;
     // regex to set all fields that start with a lowercase letter to readonly
-    return ts.replace(/^( +)([a-z])/gm, '$1readonly $2');
+    return ts.replace(/^( +)([a-z])/gm, "$1readonly $2");
   },
 };
 
@@ -37,9 +37,15 @@ export class JsonSchemaBase extends FileBase {
    * @param outFile File path from project root
    * @param options Options
    */
-  constructor(project: Project, outFile: string, options: JsonSchemaBaseOptions) {
+  constructor(
+    project: Project,
+    outFile: string,
+    options: JsonSchemaBaseOptions,
+  ) {
     super(project, outFile, options);
-    this.schema = JSON.parse(fs.readFileSync(options.filePath).toString()) as JSONSchema;
+    this.schema = JSON.parse(
+      fs.readFileSync(options.filePath).toString(),
+    ) as JSONSchema;
   }
 
   /**
@@ -49,7 +55,10 @@ export class JsonSchemaBase extends FileBase {
    * @param name Name of the Interface to generate
    * @param patches Patches to apply to the generated interface
    */
-  async generate(name: string, ...patches: ((schema: string | undefined) => string | undefined)[]) {
+  async generate(
+    name: string,
+    ...patches: ((schema: string | undefined) => string | undefined)[]
+  ) {
     this.contents = await compile(this.schema, name, {
       bannerComment: `// ${this.marker}`,
     });
@@ -65,7 +74,7 @@ export class JsonSchemaBase extends FileBase {
    */
   protected synthesizeContent(_: IResolver): string | undefined {
     if (!this.contents) {
-      throw new Error('contents not compiled');
+      throw new Error("contents not compiled");
     }
     return this.contents;
   }
@@ -78,13 +87,22 @@ export class JsonSchemaBase extends FileBase {
    * @param parentClass Name of the Parent Class containing the nested class definition as a property
    * @param className Name of the nested class to move to top level definitions
    */
-  protected moveDeclarationToType(schema: JSONSchema, parentClass: string, className: string) {
+  protected moveDeclarationToType(
+    schema: JSONSchema,
+    parentClass: string,
+    className: string,
+  ) {
     if (schema.definitions) {
       const parentDefinition = schema.definitions[parentClass];
-      if (parentDefinition.properties && parentDefinition.properties[className]) {
+      if (
+        parentDefinition.properties &&
+        parentDefinition.properties[className]
+      ) {
         const newName = parentClass + className;
         schema.definitions[newName] = parentDefinition.properties[className];
-        parentDefinition.properties[className] = { $ref: `#/definitions/${newName}` };
+        parentDefinition.properties[className] = {
+          $ref: `#/definitions/${newName}`,
+        };
       }
     }
   }
@@ -98,8 +116,17 @@ export class JsonSchemaBase extends FileBase {
    * @param oldName Old name of the definition
    * @param newName New name of the definition
    */
-  protected renameDeclaration(schema: JSONSchema, propertyName: string, oldName: string, newName: string) {
-    if (schema.definitions && schema.properties && schema.properties[propertyName]) {
+  protected renameDeclaration(
+    schema: JSONSchema,
+    propertyName: string,
+    oldName: string,
+    newName: string,
+  ) {
+    if (
+      schema.definitions &&
+      schema.properties &&
+      schema.properties[propertyName]
+    ) {
       schema.definitions[newName] = schema.definitions[oldName];
       schema.properties[propertyName] = {
         $ref: `#/definitions/${newName}`,

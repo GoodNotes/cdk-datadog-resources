@@ -1,6 +1,6 @@
-import * as camelcaseKeys from 'camelcase-keys';
-import { Project } from 'projen';
-import { JsonSchemaBase, JsonSchemaBaseOptions } from './json-schema-base';
+import * as camelcaseKeys from "camelcase-keys";
+import { Project } from "projen";
+import { JsonSchemaBase, JsonSchemaBaseOptions } from "./json-schema-base";
 
 export class DataDogMonitorSchemaGenerator extends JsonSchemaBase {
   /**
@@ -10,11 +10,27 @@ export class DataDogMonitorSchemaGenerator extends JsonSchemaBase {
    * @param filePath File path from project root
    * @param options Options
    */
-  constructor(project: Project, filePath: string, options: JsonSchemaBaseOptions) {
+  constructor(
+    project: Project,
+    filePath: string,
+    options: JsonSchemaBaseOptions,
+  ) {
     super(project, filePath, options);
-    this.moveDeclarationToType(this.schema, 'MonitorFormulaAndFunctionEventQueryGroupBy', 'Sort');
-    this.moveDeclarationToType(this.schema, 'MonitorFormulaAndFunctionEventQueryDefinition', 'Search');
-    this.moveDeclarationToType(this.schema, 'MonitorFormulaAndFunctionEventQueryDefinition', 'Compute');
+    this.moveDeclarationToType(
+      this.schema,
+      "MonitorFormulaAndFunctionEventQueryGroupBy",
+      "Sort",
+    );
+    this.moveDeclarationToType(
+      this.schema,
+      "MonitorFormulaAndFunctionEventQueryDefinition",
+      "Search",
+    );
+    this.moveDeclarationToType(
+      this.schema,
+      "MonitorFormulaAndFunctionEventQueryDefinition",
+      "Compute",
+    );
 
     // JSII requires all properties to be camelCase
     const convertedSchema = camelcaseKeys(this.schema, {

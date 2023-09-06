@@ -1,6 +1,6 @@
-import * as camelcaseKeys from 'camelcase-keys';
-import { Project } from 'projen';
-import { JsonSchemaBase, JsonSchemaBaseOptions } from './json-schema-base';
+import * as camelcaseKeys from "camelcase-keys";
+import { Project } from "projen";
+import { JsonSchemaBase, JsonSchemaBaseOptions } from "./json-schema-base";
 
 export class DataDogSLOSchemaGenerator extends JsonSchemaBase {
   /**
@@ -10,12 +10,16 @@ export class DataDogSLOSchemaGenerator extends JsonSchemaBase {
    * @param filePath File path from project root
    * @param options Options
    */
-  constructor(project: Project, filePath: string, options: JsonSchemaBaseOptions) {
+  constructor(
+    project: Project,
+    filePath: string,
+    options: JsonSchemaBaseOptions,
+  ) {
     super(project, filePath, options);
 
     // Avoid conflict with Monitor.Creator
     ///TODO: It's the same type... find a better way to handle this?
-    this.renameDeclaration(this.schema, 'Creator', 'Creator', 'SloCreator');
+    this.renameDeclaration(this.schema, "Creator", "Creator", "SloCreator");
 
     // JSII requires all properties to be camelCase
     const convertedSchema = camelcaseKeys(this.schema, {

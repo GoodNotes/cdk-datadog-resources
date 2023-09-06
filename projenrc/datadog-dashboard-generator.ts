@@ -1,6 +1,6 @@
-import * as camelcaseKeys from 'camelcase-keys';
-import { Project } from 'projen';
-import { JsonSchemaBase, JsonSchemaBaseOptions } from './json-schema-base';
+import * as camelcaseKeys from "camelcase-keys";
+import { Project } from "projen";
+import { JsonSchemaBase, JsonSchemaBaseOptions } from "./json-schema-base";
 
 export class DataDogDashboardSchemaGenerator extends JsonSchemaBase {
   /**
@@ -10,7 +10,11 @@ export class DataDogDashboardSchemaGenerator extends JsonSchemaBase {
    * @param filePath File path from project root
    * @param options Options
    */
-  constructor(project: Project, filePath: string, options: JsonSchemaBaseOptions) {
+  constructor(
+    project: Project,
+    filePath: string,
+    options: JsonSchemaBaseOptions,
+  ) {
     super(project, filePath, options);
     // JSII requires all properties to be camelCase
     const convertedSchema = camelcaseKeys(this.schema, {
