@@ -1,9 +1,9 @@
 import { CfnResource } from "aws-cdk-lib";
 import * as camelcaseKeys from "camelcase-keys";
 import { Construct } from "constructs";
-import { snakeCaseKeys } from "../util";
 import { Dashboard } from "./datadog-api-dashboard.generated";
 import { DatadogDashboardProps } from "./datadog-dashboard-schema.generated";
+import { snakeCaseKeys } from "../util";
 
 /**
  * Wrapper for generated Schema with typed dashboard property
