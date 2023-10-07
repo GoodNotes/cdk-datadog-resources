@@ -30,11 +30,6 @@
       "type": "build"
     },
     {
-      "name": "constructs",
-      "version": "10.2.69",
-      "type": "build"
-    },
-    {
       "name": "eslint-config-prettier",
       "type": "build"
     },
