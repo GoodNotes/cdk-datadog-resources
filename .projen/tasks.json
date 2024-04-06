@@ -268,7 +268,7 @@
       },
       "steps": [
         {
-          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@types/jest,aws-cdk-lib,aws-cdk,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,jsii-diff,jsii-docgen,jsii-pacmak,jsii-rosetta,jsii,json-schema-to-typescript,prettier,projen,ts-jest,ts-node,typescript,camelcase-keys,decamelize"
+          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@types/jest,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,jsii-diff,jsii-docgen,jsii-pacmak,json-schema-to-typescript,prettier,projen,ts-jest,ts-node,typescript,camelcase-keys,decamelize"
         },
         {
           "exec": "yarn install --check-files"
